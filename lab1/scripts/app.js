@@ -1,19 +1,21 @@
 $(document).ready(function() {
+    // Navbar setup
     var navbarHtml = '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
-        '<a class="navbar-brand" href="#">INFT2202 - Lab1</a>' +
-        '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">' +
-        '<span class="navbar-toggler-icon"></span>' +
-        '</button>' +
-        '<div class="collapse navbar-collapse" id="navbarNav">' +
+    '<a class="navbar-brand" href="#">INFT2202 - Lab1</a>' +
         '<ul class="navbar-nav">' +
-        '<li class="nav-item active"><a class="nav-link" href="#">Home</a></li>' +
-        '<li class="nav-item"><a class="nav-link" href="#">Products</a></li>' + 
-        '<li class="nav-item"><a class="nav-link" href="#">Services</a></li>' +
-        '<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>' +
-        '<li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>' +
+        '<li class="nav-item active"><a class="nav-link" href="#"><i class="fa fa-home"></i> Home</a></li>' + // Home icon
+        '<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-th-large"></i> Projects</a></li>' + // Projects icon
+        '<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-cogs"></i> Services</a></li>' + // Services icon
+        '<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-info-circle"></i> About Us</a></li>' + // About Us icon
+        '<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-envelope"></i> Contact Us</a></li>' + // Contact Us icon
         '</ul>' +
         '</div>' +
         '</nav>';
-        console.log("jQuery is running");
+    
+    // Inject navbar into the navbar-container
     $("#navbar-container").html(navbarHtml);
+
+    // Add background class to the body
+    $('body').addClass('homepage-background');
 });
+
