@@ -1,3 +1,7 @@
+
+
+
+
 .homepage-background {
     background-image: url('../src/HomePagebackground.png');
     background-size: contain;
@@ -5,7 +9,7 @@
     background-repeat: no-repeat;
     background-position: 0%;
     height: 100vh;
-    background-position: center -10px;
+    background-position: center 10px;
 }
 
 #welcome-article {
@@ -21,9 +25,5 @@
 }
 
 .navbar {
-    padding-left: 10px;
-}
-
-.navbar-brand {
-    padding-right: 1380px;
+    margin: 0 0 0 0;
 }
