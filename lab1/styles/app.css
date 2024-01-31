@@ -14,15 +14,29 @@
 
 #welcome-article {
     position: absolute;
-    top: 50%;
-    left: 15%;
-    transform: translate(-50%, -50%);
-    color: #fff; 
+    top: 30%;
+    left: 35%;
+    color: #000000;
     text-align: center;
-    z-index: 10; 
+    z-index: 10;
     width: 80%; 
     max-width: 600px; 
+    font-size: 4vw; 
+    text-shadow: 2px 2px 4px #ffffff;
+    font-weight: bold;
 }
+
+#welcome-article p {
+    font-size: 1.5rem; 
+    margin-top: 1rem;
+}
+/* You can still set a minimum font size to ensure readability on very small screens */
+@media (max-width: 300px) {
+  #welcome-article {
+    font-size: 12px; /* This is a fallback font size for very small screens */
+  }
+}
+
 
 .navbar {
     margin: 0 0 0 0;
