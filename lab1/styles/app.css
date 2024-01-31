@@ -1,29 +1,59 @@
 
-
-
-
 .homepage-background {
     background-image: url('../src/HomePagebackground.png');
-    background-size: contain;
+    background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-    background-position: 0%;
+    background-attachment: fixed;
     height: 100vh;
-    background-position: center 10px;
 }
 
 #welcome-article {
     position: absolute;
     top: 50%;
     left: 15%;
-    transform: translate(-50%, -50%);
+    transform: translate(-46%, -40%);
     color: #fff; 
     text-align: center;
     z-index: 10; 
     width: 80%; 
-    max-width: 600px; 
+    max-width: 800px; 
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+
+
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1030; /* Makes sure it stays above other content */
+}
+
 
 .navbar {
     margin: 0 0 0 0;
 }
+
+
+@media screen and (max-width: 768px) {
+    #welcome-article {
+        left: 10%; /* Adjust horizontal position */
+        width: 80%; /* Adjust width */
+        transform: translate(-10%, -40%); /* Adjust translation */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .navbar {
+        margin: 10px 0; /* Add some margin on smaller screens */
+    }
+}
+
