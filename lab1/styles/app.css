@@ -5,14 +5,30 @@
     background-position: center top;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100vh;
+    min-height: calc(100vh - 40px);
+    overflow: auto;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+}
+/* Background styling for the projects container */
+.projects-background {
+    background-color: #f0f0f0; /* Light grey background */
+    padding: 20px; /* Add some padding */
+    border-radius: 8px; /* Adds rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
 }
 
 #welcome-article {
     position: absolute;
     top: 50%;
     left: 15%;
-    transform: translate(-46%, -40%);
+    justify-content: center;
+    align-items: center;
     color: #fff; 
     text-align: center;
     z-index: 10;
@@ -43,17 +59,20 @@ html, body {
 }
 
 
+
 @media screen and (max-width: 768px) {
     #welcome-article {
         left: 10%; /* Adjust horizontal position */
         width: 80%; /* Adjust width */
-        transform: translate(-10%, -40%); /* Adjust translation */
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 480px) {
     .navbar {
         margin: 10px 0; /* Add some margin on smaller screens */
+    }
+    .projects-background{
+        flex-direction: column;
     }
 }
 
