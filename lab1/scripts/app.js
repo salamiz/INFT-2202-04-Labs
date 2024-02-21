@@ -28,7 +28,7 @@ $(document).ready(function() {
             // Function to dynamically create the services page, for example
             createServicesPage();
             break;
-        case "aboutUs.html":
+        case "about.html":
             // Function to dynamically create the services page, for example
             createAboutUs();
             break;
@@ -60,8 +60,8 @@ function createHeader() {
                     <ul class="navbar-nav ms-auto"> 
                         <li class="nav-item active"><a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="projects.html"><i class="fa fa-th-large"></i> Products</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-cogs"></i> Services</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-info-circle"></i> About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html"><i class="fa fa-cogs"></i> Services</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa fa-info-circle"></i> About Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="contactForm.html"><i class="fa fa-envelope"></i> Contact Us</a></li> 
                     </ul>
                 </div>
@@ -249,4 +249,73 @@ function createContactForm() {
 
     // Append the contact form HTML to the contactFormContainer area
     $('#main-content').html(contactFormHtml);
+}
+
+/**
+ * Creates the contents of the About Us Page
+ */
+function createAboutUs() {
+    var aboutContent = `
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>About Me</h2>
+                    <p>I am a seasoned softare developer with years of experience in Full Stack Development.</p>
+                    <a href="https://www.linkedin.com/in/zulkifli-salami/" class="btn btn-primary" target="_blank">Linkedln Profile</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="./src/Zul.jpeg" alt="Zul" class="img-fluid rounded-circle">
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Append the about content to the main content area
+    $('#main-content').html(aboutContent);
+}
+
+
+/**
+ * Creates the contents of the Services Page
+ */
+function createServicesPage() {
+    var servicesContent = `
+        <div class="container mt-5">
+            <div class="row">
+                <!-- Custom Programming -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./src/customProgramming.jpeg" class="card-img-top" alt="Custom Programming">
+                        <div class="card-body">
+                            <h5 class="card-title">Custom Programming</h5>
+                            <p class="card-text">We offer bespoke software solutions tailored to your business needs, specializing in backend systems, automation, and data analysis.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Web Design -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./src/webDesign.jpeg" class="card-img-top" alt="Web Design">
+                        <div class="card-body">
+                            <h5 class="card-title">Web Design</h5>
+                            <p class="card-text">Our team crafts responsive, aesthetically pleasing websites focused on usability, ensuring your visitors enjoy a seamless experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Development -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./src/mobiledev.jpeg" class="card-img-top" alt="Mobile Development">
+                        <div class="card-body">
+                            <h5 class="card-title">Mobile Development</h5>
+                            <p class="card-text">We develop high-quality iOS and Android applications that engage your audience and enhance your digital presence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Append the services content to the main content area
+    $('#main-content').html(servicesContent);
 }
