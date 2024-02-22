@@ -1,48 +1,20 @@
 /**
- * Load the document and add the welcome text.
+ * Name: Zulkifli Salami
+ * Student ID: 100850581
+ * Date Completed: 02/22/2024
  */
-$(document).ready(function() {
-    createHeader(); // This is common and needed on every page
-    changeProductsToProjects();
-    addHumanResourcesNavItem();
-    // NavBar toggler for smaller screens - common functionality
-    $('.navbar-toggler').click(function() {
-        $('#navbarNav').collapse('toggle');
-    });
-    addFixedNavbar();
 
-    // Get the current page name from the URL
-    var pageName = window.location.pathname.split("/").pop();
 
-    // Conditional loading of functions based on the page name
-    switch (pageName) {
-        case "index.html":
-            setHomePageBackground();
-            addWelcomeText();
-            break;
-        case "projects.html":
-            // Assuming you have a function to dynamically create the projects page
-            createProjectsPage();
-            break;
-        case "services.html":
-            // Function to dynamically create the services page, for example
-            createServicesPage();
-            break;
-        case "about.html":
-            // Function to dynamically create the services page, for example
-            createAboutUs();
-            break;
-        case "contactForm.html":
-            // Function to dynamically create the services page, for example
-            createContactForm();
-            break;
-        default:
-            // Default case can be used for common functionality across all pages
-            // or for handling unknown pages.
-            console.log("This is a shared or unknown page.");
-            break;
+// User Class
+class User {
+    constructor(firstName, lastName, email, password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
     }
-});
+}
+
 
 
 /**
@@ -63,6 +35,8 @@ function createHeader() {
                         <li class="nav-item"><a class="nav-link" href="services.html"><i class="fa fa-cogs"></i> Services</a></li> 
                         <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa fa-info-circle"></i> About Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="contactForm.html"><i class="fa fa-envelope"></i> Contact Us</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="login.html"><i class="fa fa-sign-in"></i> Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.html"><i class="fa fa-user-plus me-1" aria-hidden="true"></i> Sign Up</a></li>
                     </ul>
                 </div>
             </div>
@@ -319,3 +293,133 @@ function createServicesPage() {
     // Append the services content to the main content area
     $('#main-content').html(servicesContent);
 }
+
+/**
+ * Prepares the login page with necessary events
+ */
+function prepareLoginPage() {
+    $('#login-form').on('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        // Get the username from the input field
+        var username = $('#username').val().trim();
+
+        // Create a new navbar-text element with the username
+        var usernameNavItem = $('<span class="navbar-text me-3">').text(username);
+
+        // Find the Contact Us link in the navbar
+        var contactUsNavItem = $('.navbar-nav .nav-item').filter(function() {
+            return $(this).find('.nav-link').text().trim() === 'Contact Us';
+        });
+
+        // Insert the usernameNavItem before the contactUsNavItem
+        usernameNavItem.insertAfter(contactUsNavItem);
+
+        // Optionally, clear the form or redirect the user to another page
+        $('#username').val('');
+        $('#password').val('');
+    });
+}
+
+
+// Function to prepare the Register Page functionality
+function prepareRegisterPage() {
+    // Create and hide the error message div
+    var $errorMessage = $('<div id="ErrorMessage" style="display: none;" class="alert alert-danger"></div>');
+    $('#main-content').prepend($errorMessage);
+
+    // Event listener for the register form submission
+    $('#register-form').on('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var firstName = $('#firstName').val().trim();
+        var lastName = $('#lastName').val().trim();
+        var email = $('#email').val().trim();
+        var password = $('#password').val();
+        var confirmPassword = $('#confirmPassword').val();
+
+        // Clear previous error messages
+        $errorMessage.hide().text('');
+
+        // Check if first name and last name are at least 2 characters long
+        if (firstName.length < 2 || lastName.length < 2) {
+            $errorMessage.text('First Name and Last Name must be at least 2 characters long.').show();
+            return;
+        }
+
+        // Check if email is valid
+        if (email.length < 8 || !email.includes('@')) {
+            $errorMessage.text('Email must be at least 8 characters long and contain an "@" symbol.').show();
+            return;
+        }
+
+        // Check if passwords match and are at least 6 characters long
+        if (password !== confirmPassword || password.length < 6) {
+            $errorMessage.text('Passwords must match and be at least 6 characters long.').show();
+            return;
+        }
+
+        // If all checks pass, create a new User instance
+        var user = new User(firstName, lastName, email, password);
+
+        // Log the user object to the console
+        console.log(user);
+
+        // Clear the form
+        $('#register-form')[0].reset();
+    });
+}
+
+
+$(document).ready(function() {
+    createHeader(); // This is common and needed on every page
+    changeProductsToProjects();
+    addHumanResourcesNavItem();
+    // NavBar toggler for smaller screens - common functionality
+    $('.navbar-toggler').click(function() {
+        $('#navbarNav').collapse('toggle');
+    });
+    addFixedNavbar();
+
+    // Get the current page name from the URL
+    var pageName = window.location.pathname.split("/").pop();
+
+    // Conditional loading of functions based on the page name
+    switch (pageName) {
+        case "index.html":
+            setHomePageBackground();
+            addWelcomeText();
+            break;
+        case "projects.html":
+            // Assuming you have a function to dynamically create the projects page
+            createProjectsPage();
+            break;
+        case "services.html":
+            // Function to dynamically create the services page, for example
+            createServicesPage();
+            break;
+        case "about.html":
+            // Function to dynamically create the services page, for example
+            createAboutUs();
+            break;
+        case "contactForm.html":
+            // Function to dynamically create the services page, for example
+            createContactForm();
+            break;
+        case "login.html":
+            // Function to implement login page functionality
+            prepareLoginPage();
+            break;
+        case "register.html":
+            // Function to implement register page functionality
+            prepareRegisterPage();
+            break;
+        default:
+            // Default case can be used for common functionality across all pages
+            // or for handling unknown pages.
+            console.log("This is a shared or unknown page.");
+            break;
+    }
+});
+
+
