@@ -228,12 +228,17 @@ Date: 2024-03-12
            {
             localStorage.removeItem($(this).val());
            }
-           location.href = "/contact-list"; // refresh the page
-         });
+            loadHeader('contact-list');
+            loadContent('contact-list', ActiveLinkCallBack('contact-list')); // refresh the page
+            loadFooter();
+          });
 
          $("#addButton").on("click", function() 
          {
-          location.href = "/edit";
+          loadHeader('edit');
+          loadContent('edit', ActiveLinkCallBack('edit'));
+          loadFooter();
+
          });
       }
     }
@@ -284,14 +289,18 @@ Date: 2024-03-12
           localStorage.setItem(key, contact.serialize());
 
           // return to the contact list
-          location.href = "/contact-list";
+          loadHeader('contact-list');
+          loadContent('contact-list', ActiveLinkCallBack('contact-list'));
+          loadFooter();
           
         });
 
       $("#cancelButton").on("click", function()
       {
         // return to the contact list
-        location.href = "/contact-list";
+        loadHeader('contact-list');
+        loadContent('contact-list', ActiveLinkCallBack('contact-list'));
+        loadFooter();
       });
     }
 
@@ -332,7 +341,9 @@ Date: 2024-03-12
           messageArea.removeAttr("class").hide();
 
           // redirect user to secure area - contact-list.html
-          location.href = "/contact-list";
+          loadHeader('contact-list');
+          loadContent('contact-list', ActiveLinkCallBack('contact-list'));
+          loadFooter();
         }
         else
         {
@@ -367,7 +378,10 @@ Date: 2024-03-12
         // clear the login form
         document.forms[0].reset();
         // return to the home page
-        location.href = "/home";
+        loadHeader('home');
+        loadContent('home', ActiveLinkCallBack('home'));
+        loadFooter();
+
       });
     }
 
@@ -392,7 +406,9 @@ Date: 2024-03-12
           sessionStorage.clear();
 
           // redirect back to login
-          location.href = "/login";
+          loadHeader('login');
+          loadContent('login', ActiveLinkCallBack('login'));
+          loadFooter();
         });
 
         // make it look like each nav item is an active link
@@ -420,7 +436,10 @@ Date: 2024-03-12
       if(!sessionStorage.getItem("user"))
       {
       // redirect back to login page
-      location.href = "/login";
+      loadHeader('login');
+      loadContent('login', ActiveLinkCallBack('login'));
+      loadFooter();
+
       }
     }
 
