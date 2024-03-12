@@ -1,4 +1,8 @@
-/* custom JavaScript goes here */
+/* 
+Name: Zulkifli Salami
+Student ID: 100850581
+Date: 2024-03-12
+*/
 
 //IIFE - Immediately Invoked Function Expression
 //AKA - Anonymous Self-Executing Function
@@ -399,6 +403,7 @@
        
         $(`<li class="nav-item">
         <a id="contact-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Contact List</a>
+        <a id="task-list" class="nav-link" aria-current="page"><i class="fas fa-tasks"></i> Task List</a>
       </li>`).insertBefore("#loginListItem");
       }
       else
@@ -438,6 +443,7 @@
         case "login": return displayLogin;
         case "register": return displayRegister;
         case "404": return display404;
+        case "task-list": return DisplayTaskList;
         default:
           console.error("ERROR: callback does not exist: " + activeLink);
           break;
@@ -482,6 +488,9 @@
      */
     function DisplayTaskList()
     {
+        // don't allow visitors to go here
+        authGuard();
+
         let messageArea = $("#messageArea");
         messageArea.hide();
         let taskInput = $("#taskTextInput");
